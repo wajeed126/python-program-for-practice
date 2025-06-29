@@ -22,4 +22,23 @@ def find_unique_pairs(arr, target):
 result = find_unique_pairs(arr, target)
 print(result)
 
+## or 
+
+l = []
+s = set()
+for i in range (len(arr)):
+    for j in range(i+1, len(arr)):
+        a,b = arr[i], arr[j]
+        if (
+            a+b == target
+            and a != b
+            and (a,b) not in s
+            and (a,b) not in l
+            and a != target
+            and b != target
+        ):
+            l.append((a,b))
+            s.add((a,b))
+print(l)
+
 
